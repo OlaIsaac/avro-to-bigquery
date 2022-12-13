@@ -6,4 +6,12 @@
 import setuptools
 
 if __name__ == "__main__":
-    setuptools.setup()
+    setuptools.setup(
+        name="avro-to-bigquery",
+        version="0.4.0",
+        packages=["avro_to_bigquery"],
+        author="isaac",
+        license="",
+        author_email="fellipe.wurthmann@isaac.com.br",
+        description="Avro to BigQuery library"
+    )
