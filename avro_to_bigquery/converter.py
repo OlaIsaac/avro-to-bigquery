@@ -1,4 +1,5 @@
 from google.cloud import bigquery  # type: ignore
+from fastavro.schema import expand_schema
 
 AVRO_TO_BIGQUERY_TYPES = {
     "record": "RECORD",
@@ -142,5 +143,5 @@ def convert_schema(avro_schema: dict):
     :param avro_schema: The Avro schema
     :return: The BigQuery schema
     """
-
-    return tuple(map(lambda f: _convert_field(f), avro_schema["fields"]))
+    expanded_schema = expand_schema(avro_schema)
+    return tuple(map(lambda f: _convert_field(f), expanded_schema["fields"]))
